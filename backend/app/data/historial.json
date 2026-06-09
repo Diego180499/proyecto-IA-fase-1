@@ -1,0 +1,95 @@
+[
+  {
+    "id": "9d689a74-6f47-4b1e-a71a-386f6e96d37e",
+    "sintomas_ingresados": [
+      "sin_sonido"
+    ],
+    "fallas_detectadas": [
+      {
+        "id": "falla_audio",
+        "descripcion": "Falla en tarjeta de audio o drivers de sonido"
+      }
+    ],
+    "recomendaciones": [
+      {
+        "id": "rec_drivers_audio",
+        "descripcion": "Actualizar o reinstalar drivers de audio"
+      }
+    ],
+    "timestamp": "2026-06-09T03:25:18.244344Z"
+  },
+  {
+    "id": "e51c254c-97bc-4212-ad69-996d4b1a6012",
+    "sintomas_ingresados": [
+      "sin_sonido"
+    ],
+    "fallas_detectadas": [
+      {
+        "id": "falla_audio",
+        "descripcion": "Falla en tarjeta de audio o drivers de sonido"
+      }
+    ],
+    "recomendaciones": [
+      {
+        "id": "rec_drivers_audio",
+        "descripcion": "Actualizar o reinstalar drivers de audio"
+      }
+    ],
+    "timestamp": "2026-06-09T03:37:14.446910Z"
+  },
+  {
+    "id": "37377965-ffa0-4f21-9559-3ccf2ccda803",
+    "sintomas_ingresados": [
+      "pantalla_azul"
+    ],
+    "fallas_detectadas": [
+      {
+        "id": "falla_ram",
+        "descripcion": "Falla en modulo(s) de memoria RAM"
+      },
+      {
+        "id": "falla_sistema_operativo",
+        "descripcion": "Corrupcion o falla en el sistema operativo"
+      }
+    ],
+    "recomendaciones": [
+      {
+        "id": "rec_verificar_ram",
+        "descripcion": "Verificar, re-insertar o reemplazar los modulos de RAM"
+      },
+      {
+        "id": "rec_reparar_so",
+        "descripcion": "Ejecutar reparacion o reinstalacion del sistema operativo"
+      }
+    ],
+    "timestamp": "2026-06-09T05:30:33.493571Z"
+  },
+  {
+    "id": "3af9f1a3-bba9-480c-a450-f741dcd84707",
+    "sintomas_ingresados": [
+      "internet_lento_o_nulo",
+      "virus_detectado"
+    ],
+    "fallas_detectadas": [
+      {
+        "id": "falla_adaptador_red",
+        "descripcion": "Falla en el adaptador de red (WiFi/Ethernet)"
+      },
+      {
+        "id": "infeccion_malware",
+        "descripcion": "Infeccion por malware, virus o ransomware"
+      }
+    ],
+    "recomendaciones": [
+      {
+        "id": "rec_drivers_red",
+        "descripcion": "Actualizar o reinstalar drivers del adaptador de red"
+      },
+      {
+        "id": "rec_escaneo_antivirus",
+        "descripcion": "Ejecutar escaneo completo con antivirus actualizado"
+      }
+    ],
+    "timestamp": "2026-06-09T05:31:10.725762Z"
+  }
+]
