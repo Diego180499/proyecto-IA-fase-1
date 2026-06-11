@@ -4,6 +4,16 @@
 % ============================================================
 
 % ----------------------------------------------------------
+% Declaraciones dinamicas: permiten que el backend agregue,
+% modifique o elimine hechos en tiempo de ejecucion (CRUD).
+% Estos hechos sirven como semilla inicial; la fuente de
+% verdad tras el primer arranque es app/data/conocimiento.json.
+% ----------------------------------------------------------
+:- dynamic sintoma/1.
+:- dynamic causa/2.
+:- dynamic recomendacion/2.
+
+% ----------------------------------------------------------
 % Hechos - Sintomas disponibles (sintoma/1)
 % ----------------------------------------------------------
 sintoma(pantalla_negra).

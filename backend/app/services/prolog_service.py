@@ -8,9 +8,25 @@ from __future__ import annotations
 import os
 import threading
 from pathlib import Path
-from typing import Dict, List
+from typing import Dict, List, Tuple
 
 from pyswip import Prolog
+
+# Descripcion de la falla de respaldo (sin_diagnostico). No forma parte del
+# catalogo CRUD pero debe existir para enriquecer la respuesta de fallback de
+# diagnosticar/3. El backend la reasserta en cada reconstruccion de la base.
+FALLBACK_FALLA_ID = "sin_diagnostico"
+FALLBACK_FALLA_DESC = "No se pudo determinar una falla a partir de los sintomas"
+
+# Predicados de hechos gestionados por el CRUD (se limpian al reconstruir).
+_HECHOS_GESTIONADOS = (
+    "sintoma(_)",
+    "causa(_, _)",
+    "recomendacion(_, _)",
+    "descripcion_sintoma(_, _)",
+    "descripcion_falla(_, _)",
+    "descripcion_recomendacion(_, _)",
+)
 
 # Directorio raiz del proyecto: .../proyecto-IA-fase-1
 _BASE_DIR = Path(__file__).resolve().parents[3]
@@ -137,3 +153,102 @@ def health_check() -> bool:
         return bool(list(_prolog.query("sintoma(_)")))
     except Exception:
         return False
+
+
+# ----------------------------------------------------------------------------
+# Verificacion de existencia de entidades
+# ----------------------------------------------------------------------------
+def existe_falla(falla_id: str) -> bool:
+    """Verifica si una falla existe en la base (tiene descripcion asociada)."""
+    _asegurar_inicializado()
+    return bool(list(_prolog.query(f"descripcion_falla({falla_id}, _)")))
+
+
+def existe_recomendacion(rec_id: str) -> bool:
+    """Verifica si una recomendacion existe en la base de conocimiento."""
+    _asegurar_inicializado()
+    return bool(list(_prolog.query(f"descripcion_recomendacion({rec_id}, _)")))
+
+
+# ----------------------------------------------------------------------------
+# Lectura masiva de hechos (usada para sembrar el estado JSON inicial)
+# ----------------------------------------------------------------------------
+def listar_sintomas_ids() -> List[str]:
+    """Retorna los identificadores de todos los sintomas (sintoma/1)."""
+    _asegurar_inicializado()
+    return [_to_str(sol["S"]) for sol in _prolog.query("sintoma(S)")]
+
+
+def mapa_descripcion_sintoma() -> Dict[str, str]:
+    """Retorna {id_sintoma: descripcion} de descripcion_sintoma/2."""
+    _asegurar_inicializado()
+    return {_to_str(s["X"]): _to_str(s["D"]) for s in _prolog.query("descripcion_sintoma(X, D)")}
+
+
+def mapa_descripcion_falla() -> Dict[str, str]:
+    """Retorna {id_falla: descripcion} de descripcion_falla/2."""
+    _asegurar_inicializado()
+    return {_to_str(s["X"]): _to_str(s["D"]) for s in _prolog.query("descripcion_falla(X, D)")}
+
+
+def mapa_descripcion_recomendacion() -> Dict[str, str]:
+    """Retorna {id_recomendacion: descripcion} de descripcion_recomendacion/2."""
+    _asegurar_inicializado()
+    return {_to_str(s["X"]): _to_str(s["D"]) for s in _prolog.query("descripcion_recomendacion(X, D)")}
+
+
+def listar_pares_causa() -> List[Tuple[str, str]]:
+    """Retorna la lista de pares (sintoma, falla) de causa/2."""
+    _asegurar_inicializado()
+    return [(_to_str(s["S"]), _to_str(s["F"])) for s in _prolog.query("causa(S, F)")]
+
+
+def listar_pares_recomendacion() -> List[Tuple[str, str]]:
+    """Retorna la lista de pares (falla, recomendacion) de recomendacion/2."""
+    _asegurar_inicializado()
+    return [(_to_str(s["F"]), _to_str(s["R"])) for s in _prolog.query("recomendacion(F, R)")]
+
+
+# ----------------------------------------------------------------------------
+# Reconstruccion de la base de conocimiento desde el estado del CRUD
+# ----------------------------------------------------------------------------
+def _escapar_texto(texto: str) -> str:
+    """Escapa una cadena para incrustarla con seguridad en un termino Prolog."""
+    return texto.replace("\\", "\\\\").replace('"', '\\"').replace("\n", " ")
+
+
+def reconstruir_desde_estado(estado: Dict) -> None:
+    """Reemplaza todos los hechos gestionados por los del estado dado.
+
+    Limpia los predicados de hechos (retractall) y vuelve a afirmarlos a partir
+    del diccionario de estado del CRUD, manteniendo el motor de inferencia
+    sincronizado con la base de conocimiento persistida. La regla de fallback
+    (sin_diagnostico) se reasserta siempre para no degradar el diagnostico.
+    """
+    _asegurar_inicializado()
+    with _lock:
+        for patron in _HECHOS_GESTIONADOS:
+            list(_prolog.query(f"retractall({patron})"))
+
+        for sintoma in estado.get("sintomas", []):
+            sid = sintoma["id"]
+            _prolog.assertz(f"sintoma({sid})")
+            _prolog.assertz(f'descripcion_sintoma({sid}, "{_escapar_texto(sintoma["descripcion"])}")')
+            for falla_id in sintoma.get("fallas", []):
+                _prolog.assertz(f"causa({sid}, {falla_id})")
+
+        for falla in estado.get("fallas", []):
+            fid = falla["id"]
+            _prolog.assertz(f'descripcion_falla({fid}, "{_escapar_texto(falla["descripcion"])}")')
+            for rec_id in falla.get("recomendaciones", []):
+                _prolog.assertz(f"recomendacion({fid}, {rec_id})")
+
+        for recomendacion in estado.get("recomendaciones", []):
+            rid = recomendacion["id"]
+            _prolog.assertz(
+                f'descripcion_recomendacion({rid}, "{_escapar_texto(recomendacion["descripcion"])}")'
+            )
+
+        _prolog.assertz(
+            f'descripcion_falla({FALLBACK_FALLA_ID}, "{_escapar_texto(FALLBACK_FALLA_DESC)}")'
+        )

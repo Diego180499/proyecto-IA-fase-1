@@ -5,6 +5,14 @@
 % ============================================================
 
 % ----------------------------------------------------------
+% Declaraciones dinamicas: el backend reconstruye estos
+% hechos en tiempo de ejecucion a partir del CRUD.
+% ----------------------------------------------------------
+:- dynamic descripcion_sintoma/2.
+:- dynamic descripcion_falla/2.
+:- dynamic descripcion_recomendacion/2.
+
+% ----------------------------------------------------------
 % Descripciones legibles de sintomas (descripcion_sintoma/2)
 % ----------------------------------------------------------
 descripcion_sintoma(pantalla_negra,        "Pantalla en negro al encender el equipo").

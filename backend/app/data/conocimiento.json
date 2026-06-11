@@ -1,0 +1,276 @@
+{
+  "sintomas": [
+    {
+      "id": "pantalla_negra",
+      "descripcion": "Pantalla en negro al encender el equipo",
+      "fallas": [
+        "falla_ram",
+        "falla_fuente_poder",
+        "falla_tarjeta_grafica"
+      ]
+    },
+    {
+      "id": "reinicio_inesperado",
+      "descripcion": "El equipo se reinicia solo sin previo aviso",
+      "fallas": [
+        "sobrecalentamiento_cpu",
+        "falla_ram",
+        "falla_fuente_poder"
+      ]
+    },
+    {
+      "id": "lentitud_sistema",
+      "descripcion": "El sistema operativo responde muy lento",
+      "fallas": [
+        "falla_ram",
+        "infeccion_malware",
+        "falla_disco_duro"
+      ]
+    },
+    {
+      "id": "no_enciende",
+      "descripcion": "El equipo no enciende al presionar el boton de encendido",
+      "fallas": [
+        "falla_fuente_poder",
+        "falla_placa_madre"
+      ]
+    },
+    {
+      "id": "ruido_ventilador",
+      "descripcion": "Ruido excesivo o inusual proveniente del ventilador",
+      "fallas": [
+        "sobrecalentamiento_cpu"
+      ]
+    },
+    {
+      "id": "sobrecalentamiento",
+      "descripcion": "El equipo se calienta en exceso durante el uso",
+      "fallas": [
+        "sobrecalentamiento_cpu"
+      ]
+    },
+    {
+      "id": "pantalla_azul",
+      "descripcion": "Aparece pantalla azul de la muerte (BSOD)",
+      "fallas": [
+        "falla_ram",
+        "falla_sistema_operativo"
+      ]
+    },
+    {
+      "id": "error_arranque",
+      "descripcion": "Error al arrancar o cargar el sistema operativo",
+      "fallas": [
+        "falla_disco_duro",
+        "falla_sistema_operativo"
+      ]
+    },
+    {
+      "id": "no_reconoce_disco",
+      "descripcion": "El sistema no detecta el disco duro",
+      "fallas": [
+        "falla_disco_duro"
+      ]
+    },
+    {
+      "id": "internet_lento_o_nulo",
+      "descripcion": "Conexion a internet lenta o sin conectividad",
+      "fallas": [
+        "falla_adaptador_red"
+      ]
+    },
+    {
+      "id": "programas_se_cuelgan",
+      "descripcion": "Los programas se congelan o cierran inesperadamente",
+      "fallas": [
+        "falla_ram",
+        "infeccion_malware"
+      ]
+    },
+    {
+      "id": "no_detecta_usb",
+      "descripcion": "El equipo no detecta dispositivos USB conectados",
+      "fallas": [
+        "falla_controlador_usb"
+      ]
+    },
+    {
+      "id": "sin_sonido",
+      "descripcion": "El audio no funciona en el equipo",
+      "fallas": [
+        "falla_audio"
+      ]
+    },
+    {
+      "id": "imagen_distorsionada",
+      "descripcion": "La imagen en pantalla presenta artefactos o distorsion",
+      "fallas": [
+        "falla_tarjeta_grafica"
+      ]
+    },
+    {
+      "id": "memoria_insuficiente",
+      "descripcion": "Mensajes frecuentes de memoria RAM insuficiente",
+      "fallas": [
+        "falla_ram"
+      ]
+    },
+    {
+      "id": "virus_detectado",
+      "descripcion": "El antivirus reporta amenazas o comportamiento sospechoso",
+      "fallas": [
+        "infeccion_malware"
+      ]
+    },
+    {
+      "id": "bateria_no_carga",
+      "descripcion": "La bateria del equipo no carga (aplica a laptops)",
+      "fallas": [
+        "falla_bateria"
+      ]
+    },
+    {
+      "id": "teclado_no_responde",
+      "descripcion": "El teclado no responde o registra pulsaciones incorrectas",
+      "fallas": [
+        "falla_placa_madre"
+      ]
+    }
+  ],
+  "fallas": [
+    {
+      "id": "falla_ram",
+      "descripcion": "Falla en modulo(s) de memoria RAM",
+      "recomendaciones": [
+        "rec_verificar_ram"
+      ]
+    },
+    {
+      "id": "falla_disco_duro",
+      "descripcion": "Falla o dano en el disco duro / SSD",
+      "recomendaciones": [
+        "rec_diagnostico_disco"
+      ]
+    },
+    {
+      "id": "sobrecalentamiento_cpu",
+      "descripcion": "Sobrecalentamiento del procesador (CPU)",
+      "recomendaciones": [
+        "rec_limpieza_termica"
+      ]
+    },
+    {
+      "id": "falla_fuente_poder",
+      "descripcion": "Falla en la fuente de poder / adaptador",
+      "recomendaciones": [
+        "rec_revisar_fuente"
+      ]
+    },
+    {
+      "id": "infeccion_malware",
+      "descripcion": "Infeccion por malware, virus o ransomware",
+      "recomendaciones": [
+        "rec_escaneo_antivirus"
+      ]
+    },
+    {
+      "id": "falla_sistema_operativo",
+      "descripcion": "Corrupcion o falla en el sistema operativo",
+      "recomendaciones": [
+        "rec_reparar_so"
+      ]
+    },
+    {
+      "id": "falla_tarjeta_grafica",
+      "descripcion": "Falla en la tarjeta grafica (GPU)",
+      "recomendaciones": [
+        "rec_drivers_grafica"
+      ]
+    },
+    {
+      "id": "falla_placa_madre",
+      "descripcion": "Falla en la placa madre (motherboard)",
+      "recomendaciones": [
+        "rec_servicio_tecnico"
+      ]
+    },
+    {
+      "id": "falla_adaptador_red",
+      "descripcion": "Falla en el adaptador de red (WiFi/Ethernet)",
+      "recomendaciones": [
+        "rec_drivers_red"
+      ]
+    },
+    {
+      "id": "falla_controlador_usb",
+      "descripcion": "Falla en controladores o puertos USB",
+      "recomendaciones": [
+        "rec_drivers_usb"
+      ]
+    },
+    {
+      "id": "falla_audio",
+      "descripcion": "Falla en tarjeta de audio o drivers de sonido",
+      "recomendaciones": [
+        "rec_drivers_audio"
+      ]
+    },
+    {
+      "id": "falla_bateria",
+      "descripcion": "Bateria danada o al final de su vida util",
+      "recomendaciones": [
+        "rec_reemplazar_bateria"
+      ]
+    }
+  ],
+  "recomendaciones": [
+    {
+      "id": "rec_verificar_ram",
+      "descripcion": "Verificar, re-insertar o reemplazar los modulos de RAM"
+    },
+    {
+      "id": "rec_diagnostico_disco",
+      "descripcion": "Ejecutar diagnostico SMART del disco y considerar reemplazo"
+    },
+    {
+      "id": "rec_limpieza_termica",
+      "descripcion": "Limpiar ventiladores y aplicar pasta termica nueva al CPU"
+    },
+    {
+      "id": "rec_revisar_fuente",
+      "descripcion": "Revisar la fuente de poder con multimetro o reemplazarla"
+    },
+    {
+      "id": "rec_escaneo_antivirus",
+      "descripcion": "Ejecutar escaneo completo con antivirus actualizado"
+    },
+    {
+      "id": "rec_reparar_so",
+      "descripcion": "Ejecutar reparacion o reinstalacion del sistema operativo"
+    },
+    {
+      "id": "rec_drivers_grafica",
+      "descripcion": "Desinstalar y reinstalar drivers de tarjeta grafica"
+    },
+    {
+      "id": "rec_servicio_tecnico",
+      "descripcion": "Llevar el equipo a servicio tecnico especializado"
+    },
+    {
+      "id": "rec_drivers_red",
+      "descripcion": "Actualizar o reinstalar drivers del adaptador de red"
+    },
+    {
+      "id": "rec_drivers_usb",
+      "descripcion": "Reinstalar controladores USB desde el administrador de dispositivos"
+    },
+    {
+      "id": "rec_drivers_audio",
+      "descripcion": "Actualizar o reinstalar drivers de audio"
+    },
+    {
+      "id": "rec_reemplazar_bateria",
+      "descripcion": "Reemplazar la bateria por una compatible con el modelo del equipo"
+    }
+  ]
+}

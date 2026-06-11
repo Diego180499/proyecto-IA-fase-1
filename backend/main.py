@@ -11,16 +11,24 @@ from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.routers import diagnostico_router, historial_router, sintomas_router, telegram_router
-from app.services import prolog_service
+from app.routers import (
+    diagnostico_router,
+    fallas_router,
+    historial_router,
+    recomendaciones_router,
+    sintomas_router,
+    telegram_router,
+)
+from app.services import conocimiento_service, prolog_service
 
 load_dotenv()
 
 
 @asynccontextmanager
 async def lifespan(_: FastAPI):
-    """Carga la base de conocimiento Prolog al iniciar la aplicacion."""
+    """Carga la base de conocimiento Prolog y el catalogo CRUD al iniciar."""
     prolog_service.inicializar_prolog()
+    conocimiento_service.inicializar()
     yield
 
 
@@ -40,6 +48,8 @@ app.add_middleware(
 )
 
 app.include_router(sintomas_router.router)
+app.include_router(fallas_router.router)
+app.include_router(recomendaciones_router.router)
 app.include_router(diagnostico_router.router)
 app.include_router(historial_router.router)
 app.include_router(telegram_router.router)
