@@ -91,5 +91,58 @@
       }
     ],
     "timestamp": "2026-06-09T05:31:10.725762Z"
+  },
+  {
+    "id": "08c1a08c-e23a-43fd-8ed0-d8ad0978c85b",
+    "sintomas_ingresados": [
+      "pantalla_negra",
+      "lentitud_sistema",
+      "no_reconoce_disco"
+    ],
+    "fallas_detectadas": [
+      {
+        "id": "falla_ram",
+        "descripcion": "Falla en modulo(s) de memoria RAM"
+      },
+      {
+        "id": "falla_fuente_poder",
+        "descripcion": "Falla en la fuente de poder / adaptador"
+      },
+      {
+        "id": "falla_tarjeta_grafica",
+        "descripcion": "Falla en la tarjeta grafica (GPU)"
+      },
+      {
+        "id": "infeccion_malware",
+        "descripcion": "Infeccion por malware, virus o ransomware"
+      },
+      {
+        "id": "falla_disco_duro",
+        "descripcion": "Falla o dano en el disco duro / SSD"
+      }
+    ],
+    "recomendaciones": [
+      {
+        "id": "rec_verificar_ram",
+        "descripcion": "Verificar, re-insertar o reemplazar los modulos de RAM"
+      },
+      {
+        "id": "rec_revisar_fuente",
+        "descripcion": "Revisar la fuente de poder con multimetro o reemplazarla"
+      },
+      {
+        "id": "rec_drivers_grafica",
+        "descripcion": "Desinstalar y reinstalar drivers de tarjeta grafica"
+      },
+      {
+        "id": "rec_escaneo_antivirus",
+        "descripcion": "Ejecutar escaneo completo con antivirus actualizado"
+      },
+      {
+        "id": "rec_diagnostico_disco",
+        "descripcion": "Ejecutar diagnostico SMART del disco y considerar reemplazo"
+      }
+    ],
+    "timestamp": "2026-06-10T02:56:11.551008Z"
   }
 ]

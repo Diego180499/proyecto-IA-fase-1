@@ -1,0 +1,66 @@
+/* ==========================================================================
+   variables.css — Tokens de diseño globales (paleta, tipografía, espaciado)
+   ========================================================================== */
+
+:root {
+  /* -- Paleta principal (referencia: "In Color Balance") -- */
+  --color-navy-dark: #1a2744; /* Fondo de navbar, footer y elementos de peso */
+  --color-navy: #2d4a7a; /* Botones primarios, encabezados de sección       */
+  --color-blue: #5b7fb5; /* Acentos, bordes activos, hover                  */
+  --color-blue-light: #adc5e0; /* Fondos de tarjetas, badges, estados vacíos */
+  --color-gray-light: #f0f2f5; /* Fondo general del body, superficies neutras */
+
+  /* -- Complementarios funcionales -- */
+  --color-white: #ffffff;
+  --color-text: #1a2744; /* Texto principal sobre fondos claros */
+  --color-text-muted: #5b7fb5; /* Texto secundario / placeholders */
+  --color-success: #2e7d52; /* Estado: diagnóstico completado */
+  --color-error: #c0392b; /* Estado: error / síntoma no reconocido */
+  --color-border: #d0dcec; /* Bordes de tarjetas e inputs */
+
+  /* -- Derivados (transparencias para fondos suaves) -- */
+  --color-success-soft: rgba(46, 125, 82, 0.12);
+  --color-error-soft: rgba(192, 57, 43, 0.1);
+  --color-navy-soft: rgba(45, 74, 122, 0.08);
+
+  /* -- Tipografía -- */
+  --font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --fs-hero: 2.5rem;
+  --fs-section: 1.5rem;
+  --fs-card: 1rem;
+  --fs-label: 0.85rem;
+  --fs-aux: 0.75rem;
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* -- Espaciado (escala 4px) -- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+
+  /* -- Radios y sombras -- */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 1px 2px rgba(26, 39, 68, 0.06);
+  --shadow-md: 0 4px 14px rgba(26, 39, 68, 0.08);
+  --shadow-lg: 0 12px 32px rgba(26, 39, 68, 0.16);
+
+  /* -- Layout -- */
+  --container-max: 1120px;
+  --navbar-height: 64px;
+
+  /* -- Transiciones -- */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.25s ease;
+}

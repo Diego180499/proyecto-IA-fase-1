@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.routers import diagnostico_router, historial_router, sintomas_router
+from app.routers import diagnostico_router, historial_router, sintomas_router, telegram_router
 from app.services import prolog_service
 
 load_dotenv()
@@ -42,6 +42,8 @@ app.add_middleware(
 app.include_router(sintomas_router.router)
 app.include_router(diagnostico_router.router)
 app.include_router(historial_router.router)
+app.include_router(telegram_router.router)
+app.include_router(telegram_router.diagnostic_router)
 
 
 @app.get("/api/health", tags=["health"])
