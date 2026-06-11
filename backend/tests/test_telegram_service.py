@@ -100,7 +100,9 @@ def test_enviar_mensaje_ok(monkeypatch):
     mock_client.post.return_value = _mock_response(respuesta_exitosa)
 
     with patch("httpx.Client", return_value=mock_client):
-        resultado = telegram_service.enviar_mensaje("987654321", "Hola desde el chatbot")
+        resultado = telegram_service.enviar_mensaje(
+            "Hola desde el chatbot", chat_id="987654321"
+        )
 
     assert resultado["message_id"] == 42
     assert resultado["text"] == "Hola desde el chatbot"
@@ -109,6 +111,44 @@ def test_enviar_mensaje_ok(monkeypatch):
     llamada_args = mock_client.post.call_args
     assert llamada_args[1]["json"]["chat_id"] == "987654321"
     assert llamada_args[1]["json"]["text"] == "Hola desde el chatbot"
+
+
+def test_enviar_mensaje_usa_chat_id_por_defecto(monkeypatch):
+    monkeypatch.setenv("TELEGRAM_BOT_TOKEN", "123:ABC")
+    monkeypatch.setenv("TELEGRAM_CHAT_ID", "-1003925395185")
+
+    respuesta_exitosa = {
+        "ok": True,
+        "result": {
+            "message_id": 7,
+            "chat": {"id": -1003925395185, "type": "supergroup"},
+            "text": "Hola desde el backend",
+            "date": 1700000000,
+        },
+    }
+
+    mock_client = MagicMock()
+    mock_client.__enter__ = MagicMock(return_value=mock_client)
+    mock_client.__exit__ = MagicMock(return_value=False)
+    mock_client.post.return_value = _mock_response(respuesta_exitosa)
+
+    with patch("httpx.Client", return_value=mock_client):
+        resultado = telegram_service.enviar_mensaje("Hola desde el backend")
+
+    assert resultado["message_id"] == 7
+
+    # Sin pasar chat_id, debe usarse el valor de TELEGRAM_CHAT_ID
+    llamada_args = mock_client.post.call_args
+    assert llamada_args[1]["json"]["chat_id"] == "-1003925395185"
+    assert llamada_args[1]["json"]["text"] == "Hola desde el backend"
+
+
+def test_enviar_mensaje_sin_chat_id_configurado(monkeypatch):
+    monkeypatch.setenv("TELEGRAM_BOT_TOKEN", "123:ABC")
+    monkeypatch.delenv("TELEGRAM_CHAT_ID", raising=False)
+
+    with pytest.raises(RuntimeError, match="TELEGRAM_CHAT_ID no esta configurado"):
+        telegram_service.enviar_mensaje("Hola sin destino")
 
 
 def test_enviar_mensaje_chat_id_invalido(monkeypatch):
@@ -127,11 +167,11 @@ def test_enviar_mensaje_chat_id_invalido(monkeypatch):
 
     with patch("httpx.Client", return_value=mock_client):
         with pytest.raises(RuntimeError, match="chat not found"):
-            telegram_service.enviar_mensaje("chat_invalido", "Hola")
+            telegram_service.enviar_mensaje("Hola", chat_id="chat_invalido")
 
 
 def test_enviar_mensaje_sin_token(monkeypatch):
     monkeypatch.delenv("TELEGRAM_BOT_TOKEN", raising=False)
 
     with pytest.raises(RuntimeError, match="TELEGRAM_BOT_TOKEN no esta configurado"):
-        telegram_service.enviar_mensaje("123", "Hola")
+        telegram_service.enviar_mensaje("Hola", chat_id="123")

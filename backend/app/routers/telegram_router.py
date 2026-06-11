@@ -40,7 +40,7 @@ router = APIRouter(prefix="/api/telegram", tags=["telegram"])
 def enviar_mensaje_telegram(peticion: TelegramMessageRequest) -> TelegramMessageResponse:
     """Recibe un chat_id y envía el mensaje indicado al usuario en Telegram."""
     try:
-        resultado = telegram_service.enviar_mensaje(peticion.chat_id, peticion.mensaje)
+        resultado = telegram_service.enviar_mensaje(peticion.mensaje, chat_id=peticion.chat_id)
     except RuntimeError as exc:
         raise HTTPException(
             status_code=status.HTTP_502_BAD_GATEWAY,
@@ -57,9 +57,10 @@ def enviar_mensaje_telegram(peticion: TelegramMessageRequest) -> TelegramMessage
             detail=f"Error de conectividad con la API de Telegram: {exc}",
         ) from exc
 
+    chat_destino = resultado.get("chat", {}).get("id", peticion.chat_id)
     return TelegramMessageResponse(
         ok=True,
-        chat_id=peticion.chat_id,
+        chat_id=str(chat_destino),
         message_id=resultado.get("message_id"),
         texto_enviado=peticion.mensaje,
         detalle="Mensaje enviado exitosamente.",
@@ -112,7 +113,7 @@ diagnostic_router = APIRouter(tags=["telegram"])
 def send_diagnostic(peticion: SendDiagnosticRequest) -> SendDiagnosticResponse:
     """Envía un mensaje a Telegram y devuelve si la operación fue exitosa."""
     try:
-        telegram_service.enviar_mensaje(peticion.chat_id, peticion.text)
+        telegram_service.enviar_mensaje(peticion.text, chat_id=peticion.chat_id)
     except (RuntimeError, httpx.HTTPError) as exc:
         logger.error("No se pudo enviar el mensaje a Telegram: %s", exc)
         return SendDiagnosticResponse(success=False)

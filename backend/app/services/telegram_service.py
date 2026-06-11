@@ -13,6 +13,11 @@ Requisitos:
 
 Variables de entorno requeridas:
     TELEGRAM_BOT_TOKEN  Token del bot, formato: "123456:ABC-DEF..."
+
+Variables de entorno opcionales:
+    TELEGRAM_CHAT_ID    Chat ID por defecto al que se enviaran los mensajes.
+                        Si se configura, no es necesario pasar chat_id al
+                        llamar a enviar_mensaje.
 """
 from __future__ import annotations
 
@@ -34,6 +39,18 @@ def _token() -> str:
             "Agrega la variable en el archivo .env del proyecto."
         )
     return token
+
+
+def _chat_id_por_defecto() -> str:
+    """Obtiene el chat_id por defecto desde las variables de entorno."""
+    chat_id = os.getenv("TELEGRAM_CHAT_ID", "").strip()
+    if not chat_id:
+        raise RuntimeError(
+            "TELEGRAM_CHAT_ID no esta configurado. "
+            "Agrega la variable en el archivo .env del proyecto "
+            "o pasa el chat_id explicitamente a enviar_mensaje."
+        )
+    return chat_id
 
 
 def _url(method: str) -> str:
@@ -63,27 +80,30 @@ def verificar_bot() -> Dict[str, Any]:
     return datos["result"]
 
 
-def enviar_mensaje(chat_id: str, texto: str) -> Dict[str, Any]:
+def enviar_mensaje(texto: str, chat_id: str | None = None) -> Dict[str, Any]:
     """Envia un mensaje de texto a un usuario de Telegram.
 
     Llama directamente a POST https://api.telegram.org/bot{TOKEN}/sendMessage
 
     Args:
-        chat_id: Identificador numerico del chat del usuario en Telegram.
-                 El usuario debe haber iniciado conversacion con el bot
-                 previamente (enviando /start al bot).
         texto:   Contenido del mensaje a enviar.
+        chat_id: (Opcional) Identificador del chat de destino en Telegram.
+                 Si se omite, se usa el valor configurado en la variable de
+                 entorno TELEGRAM_CHAT_ID. El destinatario debe haber iniciado
+                 conversacion con el bot previamente (enviando /start al bot).
 
     Returns:
         dict con el objeto Message devuelto por Telegram (message_id, chat, text).
 
     Raises:
-        RuntimeError: Si Telegram devuelve ok=false.
+        RuntimeError: Si Telegram devuelve ok=false o si no hay chat_id
+                      configurado ni proporcionado.
         httpx.TimeoutException: Si la llamada excede _TIMEOUT_SEGUNDOS.
         httpx.RequestError: Si hay un problema de conectividad.
     """
+    destino = chat_id if chat_id else _chat_id_por_defecto()
     payload = {
-        "chat_id": chat_id,
+        "chat_id": destino,
         "text": texto,
     }
 

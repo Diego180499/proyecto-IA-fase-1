@@ -1,13 +1,16 @@
 """Servicio de orquestacion del flujo de diagnostico."""
 from __future__ import annotations
 
+import logging
 import uuid
 from datetime import datetime, timezone
 from typing import List
 
 from app.schemas.diagnostico_schema import DiagnosticoResponse
 from app.schemas.sintoma_schema import FallaOut, RecomendacionOut
-from app.services import historial_service, prolog_service
+from app.services import historial_service, prolog_service, telegram_service
+
+logger = logging.getLogger(__name__)
 
 
 def validar_sintomas(sintomas: List[str]) -> bool:
@@ -48,4 +51,49 @@ def procesar_diagnostico(sintomas: List[str]) -> DiagnosticoResponse:
     )
 
     historial_service.guardar_diagnostico(respuesta)
+
+    _notificar_telegram(respuesta)
+
     return respuesta
+
+
+def _formatear_diagnostico(respuesta: DiagnosticoResponse) -> str:
+    """Convierte un DiagnosticoResponse en un mensaje de texto plano."""
+    lineas: List[str] = ["Resultado del diagnostico"]
+    lineas.append(f"ID: {respuesta.id}")
+    lineas.append(f"Fecha: {respuesta.timestamp}")
+    lineas.append("")
+
+    sintomas = ", ".join(respuesta.sintomas_ingresados) or "Ninguno"
+    lineas.append(f"Sintomas ingresados: {sintomas}")
+    lineas.append("")
+
+    lineas.append("Fallas detectadas:")
+    if respuesta.fallas_detectadas:
+        for falla in respuesta.fallas_detectadas:
+            lineas.append(f"- {falla.descripcion}")
+    else:
+        lineas.append("- No se detectaron fallas")
+    lineas.append("")
+
+    lineas.append("Recomendaciones:")
+    if respuesta.recomendaciones:
+        for recomendacion in respuesta.recomendaciones:
+            lineas.append(f"- {recomendacion.descripcion}")
+    else:
+        lineas.append("- No hay recomendaciones")
+
+    return "\n".join(lineas)
+
+
+def _notificar_telegram(respuesta: DiagnosticoResponse) -> None:
+    """Envia el resultado del diagnostico a Telegram.
+
+    Un fallo en el envio no debe interrumpir el flujo de diagnostico, por lo
+    que cualquier excepcion se registra en el log y se ignora.
+    """
+    try:
+        mensaje = _formatear_diagnostico(respuesta)
+        telegram_service.enviar_mensaje(mensaje)
+    except Exception:  # noqa: BLE001
+        logger.exception("No se pudo enviar el diagnostico a Telegram")

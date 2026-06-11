@@ -7,9 +7,12 @@ from pydantic import BaseModel, Field
 class TelegramMessageRequest(BaseModel):
     """Cuerpo de la petición POST /api/telegram/send."""
 
-    chat_id: str = Field(
-        ...,
-        description="Chat ID del usuario en Telegram. El usuario debe haber iniciado conversación con el bot primero.",
+    chat_id: str | None = Field(
+        default=None,
+        description=(
+            "Chat ID de destino en Telegram. Opcional: si se omite, se usa el "
+            "chat_id configurado en el proyecto (TELEGRAM_CHAT_ID)."
+        ),
         examples=["123456789"],
     )
     mensaje: str = Field(
@@ -31,9 +34,12 @@ class TelegramMessageResponse(BaseModel):
 class SendDiagnosticRequest(BaseModel):
     """Cuerpo de la petición POST /send_diagnostic."""
 
-    chat_id: str = Field(
-        ...,
-        description="Chat ID del usuario en Telegram. El usuario debe haber iniciado conversación con el bot primero.",
+    chat_id: str | None = Field(
+        default=None,
+        description=(
+            "Chat ID de destino en Telegram. Opcional: si se omite, se usa el "
+            "chat_id configurado en el proyecto (TELEGRAM_CHAT_ID)."
+        ),
         examples=["123456789"],
     )
     text: str = Field(

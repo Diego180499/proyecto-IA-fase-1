@@ -144,5 +144,76 @@
       }
     ],
     "timestamp": "2026-06-10T02:56:11.551008Z"
+  },
+  {
+    "id": "3ceabad1-1af3-4078-ace9-0ed723a8dc97",
+    "sintomas_ingresados": [
+      "pantalla_negra",
+      "lentitud_sistema"
+    ],
+    "fallas_detectadas": [
+      {
+        "id": "falla_ram",
+        "descripcion": "Falla en modulo(s) de memoria RAM"
+      },
+      {
+        "id": "falla_fuente_poder",
+        "descripcion": "Falla en la fuente de poder / adaptador"
+      },
+      {
+        "id": "falla_tarjeta_grafica",
+        "descripcion": "Falla en la tarjeta grafica (GPU)"
+      },
+      {
+        "id": "infeccion_malware",
+        "descripcion": "Infeccion por malware, virus o ransomware"
+      },
+      {
+        "id": "falla_disco_duro",
+        "descripcion": "Falla o dano en el disco duro / SSD"
+      }
+    ],
+    "recomendaciones": [
+      {
+        "id": "rec_verificar_ram",
+        "descripcion": "Verificar, re-insertar o reemplazar los modulos de RAM"
+      },
+      {
+        "id": "rec_revisar_fuente",
+        "descripcion": "Revisar la fuente de poder con multimetro o reemplazarla"
+      },
+      {
+        "id": "rec_drivers_grafica",
+        "descripcion": "Desinstalar y reinstalar drivers de tarjeta grafica"
+      },
+      {
+        "id": "rec_escaneo_antivirus",
+        "descripcion": "Ejecutar escaneo completo con antivirus actualizado"
+      },
+      {
+        "id": "rec_diagnostico_disco",
+        "descripcion": "Ejecutar diagnostico SMART del disco y considerar reemplazo"
+      }
+    ],
+    "timestamp": "2026-06-11T04:17:02.576065Z"
+  },
+  {
+    "id": "ef8943fb-5411-4be2-9049-18bd7b5c70cc",
+    "sintomas_ingresados": [
+      "internet_lento_o_nulo"
+    ],
+    "fallas_detectadas": [
+      {
+        "id": "falla_adaptador_red",
+        "descripcion": "Falla en el adaptador de red (WiFi/Ethernet)"
+      }
+    ],
+    "recomendaciones": [
+      {
+        "id": "rec_drivers_red",
+        "descripcion": "Actualizar o reinstalar drivers del adaptador de red"
+      }
+    ],
+    "timestamp": "2026-06-11T04:17:57.819193Z"
   }
 ]
