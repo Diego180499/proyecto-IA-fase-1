@@ -173,6 +173,150 @@ export function Modal({ titulo, contenidoHtml, acciones = [] }) {
   return { close, root: overlay };
 }
 
+/**
+ * Modal de confirmación para acciones destructivas (eliminar).
+ * @param {string} mensaje - Texto a mostrar.
+ * @param {Function} onConfirm - Callback ejecutado al confirmar.
+ * @returns {{close:Function, root:HTMLElement}}
+ */
+export function ConfirmModal(mensaje, onConfirm) {
+  return Modal({
+    titulo: "Confirmar acción",
+    contenidoHtml: `<p>${escapeHtml(mensaje)}</p>`,
+    acciones: [
+      { label: "Cancelar", variant: "secondary", close: true },
+      { label: "Eliminar", variant: "danger", close: true, onClick: onConfirm },
+    ],
+  });
+}
+
+/* -------------------------------------------------------------------------- */
+/* EntityTable                                                                */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * Genera el HTML de una tabla reutilizable para los CRUDs.
+ *
+ * @param {object} opts
+ * @param {Array<{key:string, label:string, type?:"text"|"badges"}>} opts.columns
+ *   Definición de columnas. `type:"badges"` renderiza un arreglo como badges.
+ * @param {Array<object>} opts.rows - Filas; cada objeto debe contener `id`.
+ * @param {(id:string)=>boolean} [opts.canDelete] - Si retorna false, oculta el
+ *   botón eliminar para esa fila (p. ej. entidad protegida).
+ * @param {string} [opts.emptyText] - Texto cuando no hay filas.
+ * @returns {string} HTML de la tabla.
+ */
+export function EntityTable({ columns, rows, canDelete = () => true, emptyText = "Sin registros." }) {
+  if (!Array.isArray(rows) || rows.length === 0) {
+    return `<p class="text-muted" style="padding: var(--space-4) 0;">${escapeHtml(emptyText)}</p>`;
+  }
+
+  const headCols = columns
+    .map((c) => `<th>${escapeHtml(c.label)}</th>`)
+    .join("");
+
+  const bodyRows = rows
+    .map((row) => {
+      const cells = columns
+        .map((c) => {
+          const value = row[c.key];
+          if (c.type === "badges") {
+            const list = Array.isArray(value) ? value : [];
+            const content =
+              list.length > 0
+                ? `<div class="badge-list">${list.map((v) => Badge(v)).join("")}</div>`
+                : `<span class="text-muted">—</span>`;
+            return `<td>${content}</td>`;
+          }
+          if (c.key === "id") {
+            return `<td><code class="entity-id">${escapeHtml(value)}</code></td>`;
+          }
+          return `<td>${escapeHtml(value ?? "—")}</td>`;
+        })
+        .join("");
+
+      const deleteBtn = canDelete(row.id)
+        ? `<button class="btn btn--danger btn--sm" data-action="delete" aria-label="Eliminar ${escapeHtml(
+            row.id
+          )}">Eliminar</button>`
+        : "";
+
+      return `
+        <tr data-id="${escapeHtml(row.id)}">
+          ${cells}
+          <td>
+            <div class="table__actions">
+              <button class="btn btn--ghost btn--sm" data-action="edit" aria-label="Editar ${escapeHtml(
+                row.id
+              )}">Editar</button>
+              ${deleteBtn}
+            </div>
+          </td>
+        </tr>`;
+    })
+    .join("");
+
+  return `
+    <div class="table-wrap">
+      <table class="table">
+        <thead>
+          <tr>${headCols}<th aria-label="Acciones"></th></tr>
+        </thead>
+        <tbody>${bodyRows}</tbody>
+      </table>
+    </div>`;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Helpers de CRUD                                                            */
+/* -------------------------------------------------------------------------- */
+
+/** Patrón de ID válido para átomos de Prolog: minúscula inicial + [a-z0-9_]. */
+export const ID_PATTERN = /^[a-z][a-z0-9_]*$/;
+
+/**
+ * Valida un ID contra el patrón aceptado por el backend.
+ * @param {string} id
+ * @returns {boolean}
+ */
+export function isValidId(id) {
+  return ID_PATTERN.test(String(id ?? ""));
+}
+
+/**
+ * Traduce un error de la capa API a un Toast con mensaje amigable.
+ * Reutilizado por los tres módulos CRUD.
+ * @param {{status:number, data:any}} err
+ */
+export function manejarErrorCrud(err) {
+  const detalle = err?.data?.detail || "";
+  switch (err?.status) {
+    case 400:
+      Toast(detalle || "No se encontró el elemento referenciado.", "error");
+      break;
+    case 404:
+      Toast("El elemento no existe.", "error");
+      break;
+    case 409:
+      Toast(
+        detalle || "Ya existe un elemento con ese ID o la operación no está permitida.",
+        "error"
+      );
+      break;
+    case 422:
+      Toast(
+        "El ID debe iniciar con minúscula y contener solo letras, números o guion bajo.",
+        "error"
+      );
+      break;
+    case 0:
+      Toast("No se pudo conectar con el servidor.", "error");
+      break;
+    default:
+      Toast(detalle || "Ocurrió un error inesperado.", "error");
+  }
+}
+
 /* -------------------------------------------------------------------------- */
 /* Helpers de formato                                                         */
 /* -------------------------------------------------------------------------- */

@@ -215,5 +215,88 @@
       }
     ],
     "timestamp": "2026-06-11T04:17:57.819193Z"
+  },
+  {
+    "id": "7ca295d5-223c-43b4-9e4c-27d363f56862",
+    "sintomas_ingresados": [
+      "pc_trabada"
+    ],
+    "fallas_detectadas": [
+      {
+        "id": "falla_ram",
+        "descripcion": "Falla en modulo(s) de memoria RAM"
+      },
+      {
+        "id": "falla_disco_duro",
+        "descripcion": "Falla o dano en el disco duro / SSD"
+      }
+    ],
+    "recomendaciones": [
+      {
+        "id": "rec_verificar_ram",
+        "descripcion": "Verificar, re-insertar o reemplazar los modulos de RAM"
+      },
+      {
+        "id": "rec_diagnostico_disco",
+        "descripcion": "Ejecutar diagnostico SMART del disco y considerar reemplazo"
+      }
+    ],
+    "timestamp": "2026-06-11T05:16:48.665809Z"
+  },
+  {
+    "id": "1ff7422d-8954-4561-b88e-9632a2a12dda",
+    "sintomas_ingresados": [
+      "reinicio_inesperado",
+      "error_arranque"
+    ],
+    "fallas_detectadas": [
+      {
+        "id": "sobrecalentamiento_cpu",
+        "descripcion": "Sobrecalentamiento del procesador (CPU)"
+      },
+      {
+        "id": "falla_ram",
+        "descripcion": "Falla en modulo(s) de memoria RAM"
+      },
+      {
+        "id": "falla_fuente_poder",
+        "descripcion": "Falla en la fuente de poder / adaptador"
+      },
+      {
+        "id": "falla_disco_duro",
+        "descripcion": "Falla o dano en el disco duro / SSD"
+      },
+      {
+        "id": "falla_sistema_operativo",
+        "descripcion": "Corrupcion o falla en el sistema operativo"
+      }
+    ],
+    "recomendaciones": [
+      {
+        "id": "rec_limpieza_termica",
+        "descripcion": "Limpiar ventiladores y aplicar pasta termica nueva al CPU"
+      },
+      {
+        "id": "rec_verificar_ram",
+        "descripcion": "Verificar, re-insertar o reemplazar los modulos de RAM"
+      },
+      {
+        "id": "nueva_ram",
+        "descripcion": "Instalar nueva tarjeta RAM"
+      },
+      {
+        "id": "rec_revisar_fuente",
+        "descripcion": "Revisar la fuente de poder con multimetro o reemplazarla"
+      },
+      {
+        "id": "rec_diagnostico_disco",
+        "descripcion": "Ejecutar diagnostico SMART del disco y considerar reemplazo"
+      },
+      {
+        "id": "rec_reparar_so",
+        "descripcion": "Ejecutar reparacion o reinstalacion del sistema operativo"
+      }
+    ],
+    "timestamp": "2026-06-11T05:20:33.922409Z"
   }
 ]

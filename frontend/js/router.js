@@ -7,11 +7,13 @@
 import { renderHome } from "./views/home.js";
 import { renderDiagnostico } from "./views/diagnostico.js";
 import { renderHistorial } from "./views/historial.js";
+import { renderConocimiento } from "./views/conocimiento.js";
 
 const routes = {
   "#/": renderHome,
   "#/diagnostico": renderDiagnostico,
   "#/historial": renderHistorial,
+  "#/conocimiento": renderConocimiento,
 };
 
 const DEFAULT_ROUTE = "#/";

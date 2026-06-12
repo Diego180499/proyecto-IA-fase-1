@@ -74,4 +74,78 @@ export const api = {
 
   /** DELETE /api/historial/{id} — Elimina un diagnóstico. */
   eliminarDiag: (id) => request("DELETE", `/api/historial/${id}`),
+
+  /* ----------------------------------------------------------------------- */
+  /* Base de conocimiento — Síntomas CRUD                                    */
+  /* ----------------------------------------------------------------------- */
+
+  /** GET /api/sintomas — Síntomas con sus fallas asociadas. */
+  getSintomasDetalle: () => request("GET", "/api/sintomas"),
+
+  /** GET /api/sintomas/{id} — Detalle de un síntoma. */
+  getSintoma: (id) => request("GET", `/api/sintomas/${id}`),
+
+  /** POST /api/sintomas — Crea un síntoma. payload: { id, descripcion, fallas: [] } */
+  crearSintoma: (payload) => request("POST", "/api/sintomas", payload),
+
+  /** PUT /api/sintomas/{id} — Actualiza un síntoma. payload: { descripcion?, fallas?: [] } */
+  actualizarSintoma: (id, payload) => request("PUT", `/api/sintomas/${id}`, payload),
+
+  /** DELETE /api/sintomas/{id} — Elimina un síntoma. */
+  eliminarSintoma: (id) => request("DELETE", `/api/sintomas/${id}`),
+
+  /** POST /api/sintomas/{id}/fallas — Asocia una falla a un síntoma. */
+  asociarFallaASintoma: (sintomaId, fallaId) =>
+    request("POST", `/api/sintomas/${sintomaId}/fallas`, { falla_id: fallaId }),
+
+  /** DELETE /api/sintomas/{id}/fallas/{falla_id} — Desasocia una falla de un síntoma. */
+  desasociarFallaDeSintoma: (sintomaId, fallaId) =>
+    request("DELETE", `/api/sintomas/${sintomaId}/fallas/${fallaId}`),
+
+  /* ----------------------------------------------------------------------- */
+  /* Base de conocimiento — Fallas CRUD                                      */
+  /* ----------------------------------------------------------------------- */
+
+  /** GET /api/fallas/detalle — Fallas con sus recomendaciones asociadas. */
+  getFallasDetalle: () => request("GET", "/api/fallas/detalle"),
+
+  /** GET /api/fallas/{id} — Detalle de una falla. */
+  getFalla: (id) => request("GET", `/api/fallas/${id}`),
+
+  /** POST /api/fallas — Crea una falla. payload: { id, descripcion, recomendaciones: [] } */
+  crearFalla: (payload) => request("POST", "/api/fallas", payload),
+
+  /** PUT /api/fallas/{id} — Actualiza una falla. payload: { descripcion?, recomendaciones?: [] } */
+  actualizarFalla: (id, payload) => request("PUT", `/api/fallas/${id}`, payload),
+
+  /** DELETE /api/fallas/{id} — Elimina una falla (cascada en síntomas). */
+  eliminarFalla: (id) => request("DELETE", `/api/fallas/${id}`),
+
+  /** POST /api/fallas/{id}/recomendaciones — Asocia una recomendación a una falla. */
+  asociarRecAFalla: (fallaId, recId) =>
+    request("POST", `/api/fallas/${fallaId}/recomendaciones`, { recomendacion_id: recId }),
+
+  /** DELETE /api/fallas/{id}/recomendaciones/{rec_id} — Desasocia una recomendación. */
+  desasociarRecDeFalla: (fallaId, recId) =>
+    request("DELETE", `/api/fallas/${fallaId}/recomendaciones/${recId}`),
+
+  /* ----------------------------------------------------------------------- */
+  /* Base de conocimiento — Recomendaciones CRUD                            */
+  /* ----------------------------------------------------------------------- */
+
+  /** GET /api/recomendaciones — Catálogo de recomendaciones. */
+  getRecomendaciones: () => request("GET", "/api/recomendaciones"),
+
+  /** GET /api/recomendaciones/{id} — Detalle de una recomendación. */
+  getRecomendacion: (id) => request("GET", `/api/recomendaciones/${id}`),
+
+  /** POST /api/recomendaciones — Crea una recomendación. payload: { id, descripcion } */
+  crearRecomendacion: (payload) => request("POST", "/api/recomendaciones", payload),
+
+  /** PUT /api/recomendaciones/{id} — Actualiza una recomendación. payload: { descripcion } */
+  actualizarRecomendacion: (id, payload) =>
+    request("PUT", `/api/recomendaciones/${id}`, payload),
+
+  /** DELETE /api/recomendaciones/{id} — Elimina una recomendación. */
+  eliminarRecomendacion: (id) => request("DELETE", `/api/recomendaciones/${id}`),
 };

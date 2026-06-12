@@ -135,6 +135,14 @@
       "fallas": [
         "falla_placa_madre"
       ]
+    },
+    {
+      "id": "pc_trabada",
+      "descripcion": "La computadora se traba frecuentemente",
+      "fallas": [
+        "falla_ram",
+        "falla_disco_duro"
+      ]
     }
   ],
   "fallas": [
@@ -142,7 +150,8 @@
       "id": "falla_ram",
       "descripcion": "Falla en modulo(s) de memoria RAM",
       "recomendaciones": [
-        "rec_verificar_ram"
+        "rec_verificar_ram",
+        "nueva_ram"
       ]
     },
     {
@@ -271,6 +280,10 @@
     {
       "id": "rec_reemplazar_bateria",
       "descripcion": "Reemplazar la bateria por una compatible con el modelo del equipo"
+    },
+    {
+      "id": "nueva_ram",
+      "descripcion": "Instalar nueva tarjeta RAM"
     }
   ]
 }
