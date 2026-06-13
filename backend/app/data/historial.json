@@ -298,5 +298,140 @@
       }
     ],
     "timestamp": "2026-06-11T05:20:33.922409Z"
+  },
+  {
+    "id": "39a243e0-0605-4fea-a347-7a7430a6e060",
+    "sintomas_ingresados": [
+      "sin_sonido"
+    ],
+    "fallas_detectadas": [
+      {
+        "id": "falla_audio",
+        "descripcion": "Falla en tarjeta de audio o drivers de sonido"
+      }
+    ],
+    "recomendaciones": [
+      {
+        "id": "rec_drivers_audio",
+        "descripcion": "Actualizar o reinstalar drivers de audio"
+      }
+    ],
+    "timestamp": "2026-06-13T01:03:13.831795Z"
+  },
+  {
+    "id": "62573981-e80c-41dd-8ee9-ef9e07458e79",
+    "sintomas_ingresados": [
+      "lentitud_sistema"
+    ],
+    "fallas_detectadas": [
+      {
+        "id": "falla_ram",
+        "descripcion": "Falla en modulo(s) de memoria RAM"
+      },
+      {
+        "id": "infeccion_malware",
+        "descripcion": "Infeccion por malware, virus o ransomware"
+      },
+      {
+        "id": "falla_disco_duro",
+        "descripcion": "Falla o dano en el disco duro / SSD"
+      }
+    ],
+    "recomendaciones": [
+      {
+        "id": "rec_verificar_ram",
+        "descripcion": "Verificar, re-insertar o reemplazar los modulos de RAM"
+      },
+      {
+        "id": "nueva_ram",
+        "descripcion": "Instalar nueva tarjeta RAM"
+      },
+      {
+        "id": "rec_escaneo_antivirus",
+        "descripcion": "Ejecutar escaneo completo con antivirus actualizado"
+      },
+      {
+        "id": "rec_diagnostico_disco",
+        "descripcion": "Ejecutar diagnostico SMART del disco y considerar reemplazo"
+      }
+    ],
+    "timestamp": "2026-06-13T01:22:25.289042Z"
+  },
+  {
+    "id": "b61e0902-be58-4ea8-be47-c0fbfd212077",
+    "sintomas_ingresados": [
+      "lentitud_sistema",
+      "ruido_ventilador"
+    ],
+    "fallas_detectadas": [
+      {
+        "id": "falla_ram",
+        "descripcion": "Falla en modulo(s) de memoria RAM"
+      },
+      {
+        "id": "infeccion_malware",
+        "descripcion": "Infeccion por malware, virus o ransomware"
+      },
+      {
+        "id": "falla_disco_duro",
+        "descripcion": "Falla o dano en el disco duro / SSD"
+      },
+      {
+        "id": "sobrecalentamiento_cpu",
+        "descripcion": "Sobrecalentamiento del procesador (CPU)"
+      }
+    ],
+    "recomendaciones": [
+      {
+        "id": "rec_verificar_ram",
+        "descripcion": "Verificar, re-insertar o reemplazar los modulos de RAM"
+      },
+      {
+        "id": "nueva_ram",
+        "descripcion": "Instalar nueva tarjeta RAM"
+      },
+      {
+        "id": "rec_escaneo_antivirus",
+        "descripcion": "Ejecutar escaneo completo con antivirus actualizado"
+      },
+      {
+        "id": "rec_diagnostico_disco",
+        "descripcion": "Ejecutar diagnostico SMART del disco y considerar reemplazo"
+      },
+      {
+        "id": "rec_limpieza_termica",
+        "descripcion": "Limpiar ventiladores y aplicar pasta termica nueva al CPU"
+      }
+    ],
+    "timestamp": "2026-06-13T01:22:40.669691Z"
+  },
+  {
+    "id": "35305c3b-51de-479f-b677-bc8dccc72db9",
+    "sintomas_ingresados": [
+      "ruido_ventilador",
+      "sobrecalentamiento",
+      "no_reconoce_disco"
+    ],
+    "fallas_detectadas": [
+      {
+        "id": "sobrecalentamiento_cpu",
+        "descripcion": "Sobrecalentamiento del procesador (CPU)"
+      },
+      {
+        "id": "falla_disco_duro",
+        "descripcion": "Falla o dano en el disco duro / SSD"
+      }
+    ],
+    "recomendaciones": [
+      {
+        "id": "rec_limpieza_termica",
+        "descripcion": "Limpiar ventiladores y aplicar pasta termica nueva al CPU"
+      },
+      {
+        "id": "rec_diagnostico_disco",
+        "descripcion": "Ejecutar diagnostico SMART del disco y considerar reemplazo"
+      }
+    ],
+    "timestamp": "2026-06-13T01:22:58.276825Z"
   }
 ]

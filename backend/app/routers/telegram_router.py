@@ -18,7 +18,7 @@ from app.schemas.telegram_schema import (
     TelegramMessageRequest,
     TelegramMessageResponse,
 )
-from app.services import telegram_service
+from app.services import bot_availability_service, telegram_service
 
 logger = logging.getLogger(__name__)
 
@@ -112,6 +112,10 @@ diagnostic_router = APIRouter(tags=["telegram"])
 )
 def send_diagnostic(peticion: SendDiagnosticRequest) -> SendDiagnosticResponse:
     """Envía un mensaje a Telegram y devuelve si la operación fue exitosa."""
+    if not bot_availability_service.esta_habilitado():
+        logger.debug("Envio de diagnostico a Telegram deshabilitado; se omite el envio.")
+        return SendDiagnosticResponse(success=True)
+
     try:
         telegram_service.enviar_mensaje(peticion.text, chat_id=peticion.chat_id)
     except (RuntimeError, httpx.HTTPError) as exc:

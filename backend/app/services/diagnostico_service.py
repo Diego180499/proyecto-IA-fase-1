@@ -8,7 +8,7 @@ from typing import List
 
 from app.schemas.diagnostico_schema import DiagnosticoResponse
 from app.schemas.sintoma_schema import FallaOut, RecomendacionOut
-from app.services import historial_service, prolog_service, telegram_service
+from app.services import bot_availability_service, historial_service, prolog_service, telegram_service
 
 logger = logging.getLogger(__name__)
 
@@ -92,6 +92,10 @@ def _notificar_telegram(respuesta: DiagnosticoResponse) -> None:
     Un fallo en el envio no debe interrumpir el flujo de diagnostico, por lo
     que cualquier excepcion se registra en el log y se ignora.
     """
+    if not bot_availability_service.esta_habilitado():
+        logger.debug("Envio de diagnostico a Telegram deshabilitado; se omite la notificacion.")
+        return
+
     try:
         mensaje = _formatear_diagnostico(respuesta)
         telegram_service.enviar_mensaje(mensaje)

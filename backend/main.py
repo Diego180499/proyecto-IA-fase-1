@@ -12,6 +12,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.routers import (
+    bot_router,
     diagnostico_router,
     fallas_router,
     historial_router,
@@ -54,6 +55,7 @@ app.include_router(diagnostico_router.router)
 app.include_router(historial_router.router)
 app.include_router(telegram_router.router)
 app.include_router(telegram_router.diagnostic_router)
+app.include_router(bot_router.router)
 
 
 @app.get("/api/health", tags=["health"])

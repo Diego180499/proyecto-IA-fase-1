@@ -148,4 +148,14 @@ export const api = {
 
   /** DELETE /api/recomendaciones/{id} — Elimina una recomendación. */
   eliminarRecomendacion: (id) => request("DELETE", `/api/recomendaciones/${id}`),
+
+  /* ----------------------------------------------------------------------- */
+  /* Bot Telegram — Disponibilidad                                           */
+  /* ----------------------------------------------------------------------- */
+
+  /** GET /bot — Estado actual del envío de diagnósticos por Telegram. */
+  getBotAvailability: () => request("GET", "/bot"),
+
+  /** POST /bot/availability — Alterna el envío de diagnósticos por Telegram. */
+  toggleBotAvailability: () => request("POST", "/bot/availability", { availability: true }),
 };
