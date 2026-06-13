@@ -1,0 +1,624 @@
+[
+  {
+    "id": "9d689a74-6f47-4b1e-a71a-386f6e96d37e",
+    "sintomas_ingresados": [
+      "sin_sonido"
+    ],
+    "fallas_detectadas": [
+      {
+        "id": "falla_audio",
+        "descripcion": "Falla en tarjeta de audio o drivers de sonido"
+      }
+    ],
+    "recomendaciones": [
+      {
+        "id": "rec_drivers_audio",
+        "descripcion": "Actualizar o reinstalar drivers de audio"
+      }
+    ],
+    "timestamp": "2026-06-09T03:25:18.244344Z"
+  },
+  {
+    "id": "e51c254c-97bc-4212-ad69-996d4b1a6012",
+    "sintomas_ingresados": [
+      "sin_sonido"
+    ],
+    "fallas_detectadas": [
+      {
+        "id": "falla_audio",
+        "descripcion": "Falla en tarjeta de audio o drivers de sonido"
+      }
+    ],
+    "recomendaciones": [
+      {
+        "id": "rec_drivers_audio",
+        "descripcion": "Actualizar o reinstalar drivers de audio"
+      }
+    ],
+    "timestamp": "2026-06-09T03:37:14.446910Z"
+  },
+  {
+    "id": "37377965-ffa0-4f21-9559-3ccf2ccda803",
+    "sintomas_ingresados": [
+      "pantalla_azul"
+    ],
+    "fallas_detectadas": [
+      {
+        "id": "falla_ram",
+        "descripcion": "Falla en modulo(s) de memoria RAM"
+      },
+      {
+        "id": "falla_sistema_operativo",
+        "descripcion": "Corrupcion o falla en el sistema operativo"
+      }
+    ],
+    "recomendaciones": [
+      {
+        "id": "rec_verificar_ram",
+        "descripcion": "Verificar, re-insertar o reemplazar los modulos de RAM"
+      },
+      {
+        "id": "rec_reparar_so",
+        "descripcion": "Ejecutar reparacion o reinstalacion del sistema operativo"
+      }
+    ],
+    "timestamp": "2026-06-09T05:30:33.493571Z"
+  },
+  {
+    "id": "3af9f1a3-bba9-480c-a450-f741dcd84707",
+    "sintomas_ingresados": [
+      "internet_lento_o_nulo",
+      "virus_detectado"
+    ],
+    "fallas_detectadas": [
+      {
+        "id": "falla_adaptador_red",
+        "descripcion": "Falla en el adaptador de red (WiFi/Ethernet)"
+      },
+      {
+        "id": "infeccion_malware",
+        "descripcion": "Infeccion por malware, virus o ransomware"
+      }
+    ],
+    "recomendaciones": [
+      {
+        "id": "rec_drivers_red",
+        "descripcion": "Actualizar o reinstalar drivers del adaptador de red"
+      },
+      {
+        "id": "rec_escaneo_antivirus",
+        "descripcion": "Ejecutar escaneo completo con antivirus actualizado"
+      }
+    ],
+    "timestamp": "2026-06-09T05:31:10.725762Z"
+  },
+  {
+    "id": "08c1a08c-e23a-43fd-8ed0-d8ad0978c85b",
+    "sintomas_ingresados": [
+      "pantalla_negra",
+      "lentitud_sistema",
+      "no_reconoce_disco"
+    ],
+    "fallas_detectadas": [
+      {
+        "id": "falla_ram",
+        "descripcion": "Falla en modulo(s) de memoria RAM"
+      },
+      {
+        "id": "falla_fuente_poder",
+        "descripcion": "Falla en la fuente de poder / adaptador"
+      },
+      {
+        "id": "falla_tarjeta_grafica",
+        "descripcion": "Falla en la tarjeta grafica (GPU)"
+      },
+      {
+        "id": "infeccion_malware",
+        "descripcion": "Infeccion por malware, virus o ransomware"
+      },
+      {
+        "id": "falla_disco_duro",
+        "descripcion": "Falla o dano en el disco duro / SSD"
+      }
+    ],
+    "recomendaciones": [
+      {
+        "id": "rec_verificar_ram",
+        "descripcion": "Verificar, re-insertar o reemplazar los modulos de RAM"
+      },
+      {
+        "id": "rec_revisar_fuente",
+        "descripcion": "Revisar la fuente de poder con multimetro o reemplazarla"
+      },
+      {
+        "id": "rec_drivers_grafica",
+        "descripcion": "Desinstalar y reinstalar drivers de tarjeta grafica"
+      },
+      {
+        "id": "rec_escaneo_antivirus",
+        "descripcion": "Ejecutar escaneo completo con antivirus actualizado"
+      },
+      {
+        "id": "rec_diagnostico_disco",
+        "descripcion": "Ejecutar diagnostico SMART del disco y considerar reemplazo"
+      }
+    ],
+    "timestamp": "2026-06-10T02:56:11.551008Z"
+  },
+  {
+    "id": "3ceabad1-1af3-4078-ace9-0ed723a8dc97",
+    "sintomas_ingresados": [
+      "pantalla_negra",
+      "lentitud_sistema"
+    ],
+    "fallas_detectadas": [
+      {
+        "id": "falla_ram",
+        "descripcion": "Falla en modulo(s) de memoria RAM"
+      },
+      {
+        "id": "falla_fuente_poder",
+        "descripcion": "Falla en la fuente de poder / adaptador"
+      },
+      {
+        "id": "falla_tarjeta_grafica",
+        "descripcion": "Falla en la tarjeta grafica (GPU)"
+      },
+      {
+        "id": "infeccion_malware",
+        "descripcion": "Infeccion por malware, virus o ransomware"
+      },
+      {
+        "id": "falla_disco_duro",
+        "descripcion": "Falla o dano en el disco duro / SSD"
+      }
+    ],
+    "recomendaciones": [
+      {
+        "id": "rec_verificar_ram",
+        "descripcion": "Verificar, re-insertar o reemplazar los modulos de RAM"
+      },
+      {
+        "id": "rec_revisar_fuente",
+        "descripcion": "Revisar la fuente de poder con multimetro o reemplazarla"
+      },
+      {
+        "id": "rec_drivers_grafica",
+        "descripcion": "Desinstalar y reinstalar drivers de tarjeta grafica"
+      },
+      {
+        "id": "rec_escaneo_antivirus",
+        "descripcion": "Ejecutar escaneo completo con antivirus actualizado"
+      },
+      {
+        "id": "rec_diagnostico_disco",
+        "descripcion": "Ejecutar diagnostico SMART del disco y considerar reemplazo"
+      }
+    ],
+    "timestamp": "2026-06-11T04:17:02.576065Z"
+  },
+  {
+    "id": "ef8943fb-5411-4be2-9049-18bd7b5c70cc",
+    "sintomas_ingresados": [
+      "internet_lento_o_nulo"
+    ],
+    "fallas_detectadas": [
+      {
+        "id": "falla_adaptador_red",
+        "descripcion": "Falla en el adaptador de red (WiFi/Ethernet)"
+      }
+    ],
+    "recomendaciones": [
+      {
+        "id": "rec_drivers_red",
+        "descripcion": "Actualizar o reinstalar drivers del adaptador de red"
+      }
+    ],
+    "timestamp": "2026-06-11T04:17:57.819193Z"
+  },
+  {
+    "id": "7ca295d5-223c-43b4-9e4c-27d363f56862",
+    "sintomas_ingresados": [
+      "pc_trabada"
+    ],
+    "fallas_detectadas": [
+      {
+        "id": "falla_ram",
+        "descripcion": "Falla en modulo(s) de memoria RAM"
+      },
+      {
+        "id": "falla_disco_duro",
+        "descripcion": "Falla o dano en el disco duro / SSD"
+      }
+    ],
+    "recomendaciones": [
+      {
+        "id": "rec_verificar_ram",
+        "descripcion": "Verificar, re-insertar o reemplazar los modulos de RAM"
+      },
+      {
+        "id": "rec_diagnostico_disco",
+        "descripcion": "Ejecutar diagnostico SMART del disco y considerar reemplazo"
+      }
+    ],
+    "timestamp": "2026-06-11T05:16:48.665809Z"
+  },
+  {
+    "id": "1ff7422d-8954-4561-b88e-9632a2a12dda",
+    "sintomas_ingresados": [
+      "reinicio_inesperado",
+      "error_arranque"
+    ],
+    "fallas_detectadas": [
+      {
+        "id": "sobrecalentamiento_cpu",
+        "descripcion": "Sobrecalentamiento del procesador (CPU)"
+      },
+      {
+        "id": "falla_ram",
+        "descripcion": "Falla en modulo(s) de memoria RAM"
+      },
+      {
+        "id": "falla_fuente_poder",
+        "descripcion": "Falla en la fuente de poder / adaptador"
+      },
+      {
+        "id": "falla_disco_duro",
+        "descripcion": "Falla o dano en el disco duro / SSD"
+      },
+      {
+        "id": "falla_sistema_operativo",
+        "descripcion": "Corrupcion o falla en el sistema operativo"
+      }
+    ],
+    "recomendaciones": [
+      {
+        "id": "rec_limpieza_termica",
+        "descripcion": "Limpiar ventiladores y aplicar pasta termica nueva al CPU"
+      },
+      {
+        "id": "rec_verificar_ram",
+        "descripcion": "Verificar, re-insertar o reemplazar los modulos de RAM"
+      },
+      {
+        "id": "nueva_ram",
+        "descripcion": "Instalar nueva tarjeta RAM"
+      },
+      {
+        "id": "rec_revisar_fuente",
+        "descripcion": "Revisar la fuente de poder con multimetro o reemplazarla"
+      },
+      {
+        "id": "rec_diagnostico_disco",
+        "descripcion": "Ejecutar diagnostico SMART del disco y considerar reemplazo"
+      },
+      {
+        "id": "rec_reparar_so",
+        "descripcion": "Ejecutar reparacion o reinstalacion del sistema operativo"
+      }
+    ],
+    "timestamp": "2026-06-11T05:20:33.922409Z"
+  },
+  {
+    "id": "39a243e0-0605-4fea-a347-7a7430a6e060",
+    "sintomas_ingresados": [
+      "sin_sonido"
+    ],
+    "fallas_detectadas": [
+      {
+        "id": "falla_audio",
+        "descripcion": "Falla en tarjeta de audio o drivers de sonido"
+      }
+    ],
+    "recomendaciones": [
+      {
+        "id": "rec_drivers_audio",
+        "descripcion": "Actualizar o reinstalar drivers de audio"
+      }
+    ],
+    "timestamp": "2026-06-13T01:03:13.831795Z"
+  },
+  {
+    "id": "62573981-e80c-41dd-8ee9-ef9e07458e79",
+    "sintomas_ingresados": [
+      "lentitud_sistema"
+    ],
+    "fallas_detectadas": [
+      {
+        "id": "falla_ram",
+        "descripcion": "Falla en modulo(s) de memoria RAM"
+      },
+      {
+        "id": "infeccion_malware",
+        "descripcion": "Infeccion por malware, virus o ransomware"
+      },
+      {
+        "id": "falla_disco_duro",
+        "descripcion": "Falla o dano en el disco duro / SSD"
+      }
+    ],
+    "recomendaciones": [
+      {
+        "id": "rec_verificar_ram",
+        "descripcion": "Verificar, re-insertar o reemplazar los modulos de RAM"
+      },
+      {
+        "id": "nueva_ram",
+        "descripcion": "Instalar nueva tarjeta RAM"
+      },
+      {
+        "id": "rec_escaneo_antivirus",
+        "descripcion": "Ejecutar escaneo completo con antivirus actualizado"
+      },
+      {
+        "id": "rec_diagnostico_disco",
+        "descripcion": "Ejecutar diagnostico SMART del disco y considerar reemplazo"
+      }
+    ],
+    "timestamp": "2026-06-13T01:22:25.289042Z"
+  },
+  {
+    "id": "b61e0902-be58-4ea8-be47-c0fbfd212077",
+    "sintomas_ingresados": [
+      "lentitud_sistema",
+      "ruido_ventilador"
+    ],
+    "fallas_detectadas": [
+      {
+        "id": "falla_ram",
+        "descripcion": "Falla en modulo(s) de memoria RAM"
+      },
+      {
+        "id": "infeccion_malware",
+        "descripcion": "Infeccion por malware, virus o ransomware"
+      },
+      {
+        "id": "falla_disco_duro",
+        "descripcion": "Falla o dano en el disco duro / SSD"
+      },
+      {
+        "id": "sobrecalentamiento_cpu",
+        "descripcion": "Sobrecalentamiento del procesador (CPU)"
+      }
+    ],
+    "recomendaciones": [
+      {
+        "id": "rec_verificar_ram",
+        "descripcion": "Verificar, re-insertar o reemplazar los modulos de RAM"
+      },
+      {
+        "id": "nueva_ram",
+        "descripcion": "Instalar nueva tarjeta RAM"
+      },
+      {
+        "id": "rec_escaneo_antivirus",
+        "descripcion": "Ejecutar escaneo completo con antivirus actualizado"
+      },
+      {
+        "id": "rec_diagnostico_disco",
+        "descripcion": "Ejecutar diagnostico SMART del disco y considerar reemplazo"
+      },
+      {
+        "id": "rec_limpieza_termica",
+        "descripcion": "Limpiar ventiladores y aplicar pasta termica nueva al CPU"
+      }
+    ],
+    "timestamp": "2026-06-13T01:22:40.669691Z"
+  },
+  {
+    "id": "35305c3b-51de-479f-b677-bc8dccc72db9",
+    "sintomas_ingresados": [
+      "ruido_ventilador",
+      "sobrecalentamiento",
+      "no_reconoce_disco"
+    ],
+    "fallas_detectadas": [
+      {
+        "id": "sobrecalentamiento_cpu",
+        "descripcion": "Sobrecalentamiento del procesador (CPU)"
+      },
+      {
+        "id": "falla_disco_duro",
+        "descripcion": "Falla o dano en el disco duro / SSD"
+      }
+    ],
+    "recomendaciones": [
+      {
+        "id": "rec_limpieza_termica",
+        "descripcion": "Limpiar ventiladores y aplicar pasta termica nueva al CPU"
+      },
+      {
+        "id": "rec_diagnostico_disco",
+        "descripcion": "Ejecutar diagnostico SMART del disco y considerar reemplazo"
+      }
+    ],
+    "timestamp": "2026-06-13T01:22:58.276825Z"
+  },
+  {
+    "id": "59243af5-9edd-4172-8bc8-74b6a436e263",
+    "sintomas_ingresados": [
+      "pantalla_negra",
+      "reinicio_inesperado"
+    ],
+    "fallas_detectadas": [
+      {
+        "id": "falla_ram",
+        "descripcion": "Falla en modulo(s) de memoria RAM"
+      },
+      {
+        "id": "falla_fuente_poder",
+        "descripcion": "Falla en la fuente de poder / adaptador"
+      },
+      {
+        "id": "falla_tarjeta_grafica",
+        "descripcion": "Falla en la tarjeta grafica (GPU)"
+      },
+      {
+        "id": "sobrecalentamiento_cpu",
+        "descripcion": "Sobrecalentamiento del procesador (CPU)"
+      }
+    ],
+    "recomendaciones": [
+      {
+        "id": "rec_verificar_ram",
+        "descripcion": "Verificar, re-insertar o reemplazar los modulos de RAM"
+      },
+      {
+        "id": "nueva_ram",
+        "descripcion": "Instalar nueva tarjeta RAM"
+      },
+      {
+        "id": "rec_revisar_fuente",
+        "descripcion": "Revisar la fuente de poder con multimetro o reemplazarla"
+      },
+      {
+        "id": "rec_drivers_grafica",
+        "descripcion": "Desinstalar y reinstalar drivers de tarjeta grafica"
+      },
+      {
+        "id": "rec_limpieza_termica",
+        "descripcion": "Limpiar ventiladores y aplicar pasta termica nueva al CPU"
+      }
+    ],
+    "timestamp": "2026-06-13T15:07:14.935570Z"
+  },
+  {
+    "id": "8642761f-99ac-4838-b6d1-b154ae5bfd7e",
+    "sintomas_ingresados": [
+      "usb_no_encontrada"
+    ],
+    "fallas_detectadas": [
+      {
+        "id": "sobrecalentamiento_cpu",
+        "descripcion": "Sobrecalentamiento del procesador (CPU)"
+      },
+      {
+        "id": "falla_fuente_poder",
+        "descripcion": "Falla en la fuente de poder / adaptador"
+      },
+      {
+        "id": "periferico_danado",
+        "descripcion": "Los periféricos de la PC están dañados"
+      }
+    ],
+    "recomendaciones": [
+      {
+        "id": "rec_limpieza_termica",
+        "descripcion": "Limpiar ventiladores y aplicar pasta termica nueva al CPU"
+      },
+      {
+        "id": "rec_revisar_fuente",
+        "descripcion": "Revisar la fuente de poder con multimetro o reemplazarla"
+      },
+      {
+        "id": "limpieza_pc",
+        "descripcion": "Limpiar periféricos para evitar un daño completo en puertos USB, HDMI, etc."
+      }
+    ],
+    "timestamp": "2026-06-13T15:21:50.152141Z"
+  },
+  {
+    "id": "ebd2a5c3-7cf4-4048-8cf4-53875cadd367",
+    "sintomas_ingresados": [
+      "pantalla_negra",
+      "reinicio_inesperado"
+    ],
+    "fallas_detectadas": [
+      {
+        "id": "falla_ram",
+        "descripcion": "Falla en modulo(s) de memoria RAM"
+      },
+      {
+        "id": "falla_fuente_poder",
+        "descripcion": "Falla en la fuente de poder / adaptador"
+      },
+      {
+        "id": "falla_tarjeta_grafica",
+        "descripcion": "Falla en la tarjeta grafica (GPU)"
+      },
+      {
+        "id": "sobrecalentamiento_cpu",
+        "descripcion": "Sobrecalentamiento del procesador (CPU)"
+      }
+    ],
+    "recomendaciones": [
+      {
+        "id": "rec_verificar_ram",
+        "descripcion": "Verificar, re-insertar o reemplazar los modulos de RAM"
+      },
+      {
+        "id": "nueva_ram",
+        "descripcion": "Instalar nueva tarjeta RAM"
+      },
+      {
+        "id": "rec_revisar_fuente",
+        "descripcion": "Revisar la fuente de poder con multimetro o reemplazarla"
+      },
+      {
+        "id": "rec_drivers_grafica",
+        "descripcion": "Desinstalar y reinstalar drivers de tarjeta grafica"
+      },
+      {
+        "id": "rec_limpieza_termica",
+        "descripcion": "Limpiar ventiladores y aplicar pasta termica nueva al CPU"
+      }
+    ],
+    "timestamp": "2026-06-13T15:22:38.611842Z"
+  },
+  {
+    "id": "f2af4dc9-8129-42ff-bda2-f70561fe6358",
+    "sintomas_ingresados": [
+      "pc_trabada",
+      "usb_no_encontrada"
+    ],
+    "fallas_detectadas": [
+      {
+        "id": "falla_ram",
+        "descripcion": "Falla en modulo(s) de memoria RAM"
+      },
+      {
+        "id": "falla_disco_duro",
+        "descripcion": "Falla o dano en el disco duro / SSD"
+      },
+      {
+        "id": "sobrecalentamiento_cpu",
+        "descripcion": "Sobrecalentamiento del procesador (CPU)"
+      },
+      {
+        "id": "falla_fuente_poder",
+        "descripcion": "Falla en la fuente de poder / adaptador"
+      },
+      {
+        "id": "periferico_danado",
+        "descripcion": "Los periféricos de la PC están dañados"
+      }
+    ],
+    "recomendaciones": [
+      {
+        "id": "rec_verificar_ram",
+        "descripcion": "Verificar, re-insertar o reemplazar los modulos de RAM"
+      },
+      {
+        "id": "nueva_ram",
+        "descripcion": "Instalar nueva tarjeta RAM"
+      },
+      {
+        "id": "rec_diagnostico_disco",
+        "descripcion": "Ejecutar diagnostico SMART del disco y considerar reemplazo"
+      },
+      {
+        "id": "rec_limpieza_termica",
+        "descripcion": "Limpiar ventiladores y aplicar pasta termica nueva al CPU"
+      },
+      {
+        "id": "rec_revisar_fuente",
+        "descripcion": "Revisar la fuente de poder con multimetro o reemplazarla"
+      },
+      {
+        "id": "limpieza_pc",
+        "descripcion": "Limpiar periféricos para evitar un daño completo en puertos USB, HDMI, etc."
+      }
+    ],
+    "timestamp": "2026-06-13T15:22:53.244268Z"
+  }
+]
