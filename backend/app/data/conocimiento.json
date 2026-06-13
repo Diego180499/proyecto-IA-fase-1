@@ -143,6 +143,15 @@
         "falla_ram",
         "falla_disco_duro"
       ]
+    },
+    {
+      "id": "usb_no_encontrada",
+      "descripcion": "El periferico para USB no lee",
+      "fallas": [
+        "sobrecalentamiento_cpu",
+        "falla_fuente_poder",
+        "periferico_danado"
+      ]
     }
   ],
   "fallas": [
@@ -230,6 +239,14 @@
       "recomendaciones": [
         "rec_reemplazar_bateria"
       ]
+    },
+    {
+      "id": "periferico_danado",
+      "descripcion": "Los periféricos de la PC están dañados",
+      "recomendaciones": [
+        "rec_revisar_fuente",
+        "limpieza_pc"
+      ]
     }
   ],
   "recomendaciones": [
@@ -284,6 +301,10 @@
     {
       "id": "nueva_ram",
       "descripcion": "Instalar nueva tarjeta RAM"
+    },
+    {
+      "id": "limpieza_pc",
+      "descripcion": "Limpiar periféricos para evitar un daño completo en puertos USB, HDMI, etc."
     }
   ]
 }

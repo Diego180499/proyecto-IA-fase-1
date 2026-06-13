@@ -433,5 +433,192 @@
       }
     ],
     "timestamp": "2026-06-13T01:22:58.276825Z"
+  },
+  {
+    "id": "59243af5-9edd-4172-8bc8-74b6a436e263",
+    "sintomas_ingresados": [
+      "pantalla_negra",
+      "reinicio_inesperado"
+    ],
+    "fallas_detectadas": [
+      {
+        "id": "falla_ram",
+        "descripcion": "Falla en modulo(s) de memoria RAM"
+      },
+      {
+        "id": "falla_fuente_poder",
+        "descripcion": "Falla en la fuente de poder / adaptador"
+      },
+      {
+        "id": "falla_tarjeta_grafica",
+        "descripcion": "Falla en la tarjeta grafica (GPU)"
+      },
+      {
+        "id": "sobrecalentamiento_cpu",
+        "descripcion": "Sobrecalentamiento del procesador (CPU)"
+      }
+    ],
+    "recomendaciones": [
+      {
+        "id": "rec_verificar_ram",
+        "descripcion": "Verificar, re-insertar o reemplazar los modulos de RAM"
+      },
+      {
+        "id": "nueva_ram",
+        "descripcion": "Instalar nueva tarjeta RAM"
+      },
+      {
+        "id": "rec_revisar_fuente",
+        "descripcion": "Revisar la fuente de poder con multimetro o reemplazarla"
+      },
+      {
+        "id": "rec_drivers_grafica",
+        "descripcion": "Desinstalar y reinstalar drivers de tarjeta grafica"
+      },
+      {
+        "id": "rec_limpieza_termica",
+        "descripcion": "Limpiar ventiladores y aplicar pasta termica nueva al CPU"
+      }
+    ],
+    "timestamp": "2026-06-13T15:07:14.935570Z"
+  },
+  {
+    "id": "8642761f-99ac-4838-b6d1-b154ae5bfd7e",
+    "sintomas_ingresados": [
+      "usb_no_encontrada"
+    ],
+    "fallas_detectadas": [
+      {
+        "id": "sobrecalentamiento_cpu",
+        "descripcion": "Sobrecalentamiento del procesador (CPU)"
+      },
+      {
+        "id": "falla_fuente_poder",
+        "descripcion": "Falla en la fuente de poder / adaptador"
+      },
+      {
+        "id": "periferico_danado",
+        "descripcion": "Los periféricos de la PC están dañados"
+      }
+    ],
+    "recomendaciones": [
+      {
+        "id": "rec_limpieza_termica",
+        "descripcion": "Limpiar ventiladores y aplicar pasta termica nueva al CPU"
+      },
+      {
+        "id": "rec_revisar_fuente",
+        "descripcion": "Revisar la fuente de poder con multimetro o reemplazarla"
+      },
+      {
+        "id": "limpieza_pc",
+        "descripcion": "Limpiar periféricos para evitar un daño completo en puertos USB, HDMI, etc."
+      }
+    ],
+    "timestamp": "2026-06-13T15:21:50.152141Z"
+  },
+  {
+    "id": "ebd2a5c3-7cf4-4048-8cf4-53875cadd367",
+    "sintomas_ingresados": [
+      "pantalla_negra",
+      "reinicio_inesperado"
+    ],
+    "fallas_detectadas": [
+      {
+        "id": "falla_ram",
+        "descripcion": "Falla en modulo(s) de memoria RAM"
+      },
+      {
+        "id": "falla_fuente_poder",
+        "descripcion": "Falla en la fuente de poder / adaptador"
+      },
+      {
+        "id": "falla_tarjeta_grafica",
+        "descripcion": "Falla en la tarjeta grafica (GPU)"
+      },
+      {
+        "id": "sobrecalentamiento_cpu",
+        "descripcion": "Sobrecalentamiento del procesador (CPU)"
+      }
+    ],
+    "recomendaciones": [
+      {
+        "id": "rec_verificar_ram",
+        "descripcion": "Verificar, re-insertar o reemplazar los modulos de RAM"
+      },
+      {
+        "id": "nueva_ram",
+        "descripcion": "Instalar nueva tarjeta RAM"
+      },
+      {
+        "id": "rec_revisar_fuente",
+        "descripcion": "Revisar la fuente de poder con multimetro o reemplazarla"
+      },
+      {
+        "id": "rec_drivers_grafica",
+        "descripcion": "Desinstalar y reinstalar drivers de tarjeta grafica"
+      },
+      {
+        "id": "rec_limpieza_termica",
+        "descripcion": "Limpiar ventiladores y aplicar pasta termica nueva al CPU"
+      }
+    ],
+    "timestamp": "2026-06-13T15:22:38.611842Z"
+  },
+  {
+    "id": "f2af4dc9-8129-42ff-bda2-f70561fe6358",
+    "sintomas_ingresados": [
+      "pc_trabada",
+      "usb_no_encontrada"
+    ],
+    "fallas_detectadas": [
+      {
+        "id": "falla_ram",
+        "descripcion": "Falla en modulo(s) de memoria RAM"
+      },
+      {
+        "id": "falla_disco_duro",
+        "descripcion": "Falla o dano en el disco duro / SSD"
+      },
+      {
+        "id": "sobrecalentamiento_cpu",
+        "descripcion": "Sobrecalentamiento del procesador (CPU)"
+      },
+      {
+        "id": "falla_fuente_poder",
+        "descripcion": "Falla en la fuente de poder / adaptador"
+      },
+      {
+        "id": "periferico_danado",
+        "descripcion": "Los periféricos de la PC están dañados"
+      }
+    ],
+    "recomendaciones": [
+      {
+        "id": "rec_verificar_ram",
+        "descripcion": "Verificar, re-insertar o reemplazar los modulos de RAM"
+      },
+      {
+        "id": "nueva_ram",
+        "descripcion": "Instalar nueva tarjeta RAM"
+      },
+      {
+        "id": "rec_diagnostico_disco",
+        "descripcion": "Ejecutar diagnostico SMART del disco y considerar reemplazo"
+      },
+      {
+        "id": "rec_limpieza_termica",
+        "descripcion": "Limpiar ventiladores y aplicar pasta termica nueva al CPU"
+      },
+      {
+        "id": "rec_revisar_fuente",
+        "descripcion": "Revisar la fuente de poder con multimetro o reemplazarla"
+      },
+      {
+        "id": "limpieza_pc",
+        "descripcion": "Limpiar periféricos para evitar un daño completo en puertos USB, HDMI, etc."
+      }
+    ],
+    "timestamp": "2026-06-13T15:22:53.244268Z"
   }
 ]
